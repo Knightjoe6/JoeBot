@@ -1,0 +1,7 @@
+/.env
+/DiscordBot.iml
+**/__pycache__/
+/bot_error.log
+/venv
+*.log*
+.cache.sqlite
