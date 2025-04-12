@@ -1,0 +1,30 @@
+
+[project]
+name = "joebot"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "aiohttp>=3.11.16",
+    "apscheduler>=3.11.0",
+    "discord-py>=2.5.2",
+    "geopy>=2.4.1",
+    "google-api-python-client>=2.166.0",
+    "mysql-connector-python>=9.2.0",
+    "openmeteo-requests>=1.4.0",
+    "pillow>=11.1.0",
+    "pint>=0.24.4",
+    "python-dotenv>=1.1.0",
+    "pytz>=2025.2",
+    "requests>=2.32.3",
+    "requests-cache>=1.2.1",
+    "retry-requests>=2.0.0",
+    "sqlalchemy[mysql-connector]>=2.0.40",
+]
+
+[tool.uv]
+required-environments = [
+    "sys_platform == 'linux' and platform_machine == 'x86_64'",
+    "sys_platform == 'linux' and platform_machine == 'arm64'",
+]
