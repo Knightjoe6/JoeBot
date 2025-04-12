@@ -1,0 +1,32 @@
+x-sql-env:
+  user: &sql-user "${MARIADB_USER:-${MYSQL_USER:-joebot}}"
+  password: &sql-password "${MARIADB_PASSWORD:-${MYSQL_PASSWORD:-joebot}}"
+  database: &sql-database "${MARIADB_DATABASE:-${MYSQL_DATABASE:-joebot}}"
+
+services:
+  app:
+    build: .
+    depends_on:
+      - sql
+    environment:
+      MYSQL_USER: *sql-user
+      MYSQL_PASSWORD: *sql-password
+      MYSQL_DATABASE: *sql-database
+      MYSQL_HOST: sql
+    restart: unless-stopped
+
+  sql:
+    image: mariadb:10
+    environment:
+      MARIADB_USER: *sql-user
+      MARIADB_PASSWORD: *sql-password
+      MARIADB_ROOT_PASSWORD: *sql-password
+      MARIADB_DATABASE: *sql-database
+    ports:
+      - "3306"
+    volumes:
+      - mariadb-data:/var/lib/mysql
+    restart: unless-stopped
+
+volumes:
+  mariadb-data:

@@ -1,7 +1,11 @@
-/.env
+.env
+.env.*
+!.env.template
 /DiscordBot.iml
 **/__pycache__/
+**.py[cod]
 /bot_error.log
 /venv
+.venv
 *.log*
-.cache.sqlite
+*.sqlite*
